@@ -14,30 +14,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Adaugă un listener de eveniment pentru evenimentul de click pe logo
   logo.addEventListener("click", handleLogoClick);
+  
+  var links = document.querySelectorAll('a[href^="#"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function(event) {
+      event.preventDefault();
+      var targetId = this.getAttribute("href").slice(1);
+      var targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        var offset = targetElement.offsetTop - 150;
+        window.scrollTo({
+          top: offset,
+          behavior: "smooth"
+        });
+      }
+    });
+  }
 });
 
-
-function scrollToElementWithOffset(elementId) {
-    const targetElement = document.getElementById(elementId);
-  
-    if (targetElement) {
-      const offset = targetElement.offsetTop - 150;
-      window.scrollTo({
-        top: offset,
-        behavior: 'smooth'
-      });
-    }
-  }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('a');
-  
-    links.forEach(function(link) {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href').substr(1);
-        scrollToElementWithOffset(targetId);
-      });
-    });
-  });
-  
