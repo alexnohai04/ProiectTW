@@ -1,4 +1,5 @@
 # The 100 - Proiect final Tehnici Web
+#link catre site - https://alexnohai04.github.io/
 
 - am avut in vedere crearea unei pagini ce prezinta serialul meu preferat
 - pagina este adaptabila dimensiunii ecranului
